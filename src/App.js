@@ -51,15 +51,15 @@ export default class App extends Component {
     return (
       <div>
         <BrowserRouter>
-          <Switch>
+          {/* <Switch> */}
             <Route path='/' component={SearchForm} />
-          <Route path="search/:query" component={PhotoContainer}></Route>
+          {/* <Route path="search/:query" component={PhotoContainer}></Route> */}
             <Nav />
             <Route path='/cats' />
             <Route path='/dogs' />
             <Route path='/computers' />
-            <Route component={NoGifs} />
-          </Switch>
+            {/* <Route component={NoGifs} /> */}
+          {/* </Switch> */}
         </BrowserRouter>
         <PhotoContainer data={this.state.photos} />
       </div>
