@@ -8,8 +8,8 @@ const PhotoContainer = props => {
   if(results.length > 0) {
   photos = results.map(photo => 
     <GalleryItem 
-    url={'https://farm'+ photo.farm + '.staticflickr.com/'+ photo.server + '/' + photo.id + '_' + photo.secret + '_q'+'.jpg'
-    } key={photo.id}/>
+    url={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_q.jpg`}
+     key={photo.id}/>
     )
   } else {
     photos = <NoGifs />

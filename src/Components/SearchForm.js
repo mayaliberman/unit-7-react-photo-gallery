@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
 
 export default class SearchForm extends Component {
+  handleSubmit = e => {
+    e.preventDefault();
+    let searchField = this.name.value;
+    let path = `search/${searchField}`;
+    this.props.history.push(path)
+  }
   render() {
     return (
-      <form className='search-form'>
-        <input type='search' name='search' placeholder='Search' required />
+      <div className='container'>
+      <form className='search-form' onSubmit={this.handleSubmit}>
+        <input type='search' name='search' placeholder='Search' ref={input=>(this.name = input)} required />
         <button type='submit' className='search-button'>
           <svg
             fill='#fff'
@@ -18,6 +25,7 @@ export default class SearchForm extends Component {
           </svg>
         </button>
       </form>
+      </div>
     );
   }
 }
