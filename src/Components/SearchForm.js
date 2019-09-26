@@ -13,9 +13,7 @@ onSearchChange = e => {
     e.preventDefault();
     this.props.onSearch(this.state.searchText);
     e.currentTarget.reset();
-    // let searchField = this.name.value;
-    // let path = `search/${searchField}`;
-    // this.props.history.push(path)
+    
   }
   render() {
     return (
