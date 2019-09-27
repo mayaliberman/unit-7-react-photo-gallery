@@ -94,9 +94,8 @@ export default class App extends Component {
     return (
       <div>
         <BrowserRouter>
-         <Header {...this.performSearch}/>
-          <Route
-            path='/'
+         <Header search={this.performSearch}/>
+          <Route path='/search'
             render={props =>
               this.state.loading ? (
                 <p>Loading...</p>

@@ -6,7 +6,7 @@ export default class Header extends Component {
   render() {
     return (
       <div>
-        <SearchForm onSearch={this.performSearch}/>
+        <SearchForm onSearch={this.props.search}/>
         <Nav />
       </div>
     );
