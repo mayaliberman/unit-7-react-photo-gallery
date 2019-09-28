@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
 import axios from 'axios';
-import Header from './Components/Header'
+import Header from './Components/Header';
 import PhotoContainer from './Components/PhotoContainer';
 import apiKey from './config';
 
@@ -30,6 +30,7 @@ export default class App extends Component {
       )
       .then(response => {
         this.setState({ cats: response.data.photos.photo, loading: false });
+        console.log('this.state.cats', this.state.cats);
       })
 
       .catch(error => {
@@ -82,7 +83,9 @@ export default class App extends Component {
         this.setState({
           photos: response.data.photos.photo,
           loading: false //initialize a loading state to display a loading message
+          
         });
+        console.log(this.state.photos)
       })
       .catch(error => {
         //this catch method outputs a message to the console, should axios fail to retrieve data
@@ -92,57 +95,24 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
-        <BrowserRouter>
-         <Header search={this.performSearch}/>
-          <Route path='/search'
-            render={props =>
-              this.state.loading ? (
-                <p>Loading...</p>
-              ) : (
-                <PhotoContainer
-                  {...props}
-                  data={this.state.photos}
-                  title='Results'
-                />
-              )
-            }
+      <BrowserRouter>
+        <div>
+          <Header />
+          <Route exact path='/' component={Header} />
+          <Route
+            path='/search'
+            render={props => <PhotoContainer {...props} data={this.state.photos} />}
+            
           />
-          {/* <Nav /> */}
           <Route
             path='/cats'
-            render={props =>
-              this.state.loading ? (
-                <p>Loading...</p>
-              ) : (
-                <PhotoContainer
-                  {...props}
-                  data={this.state.cats}
-                  title='cats'
-                />
-              )
-            }
+            render={props => <PhotoContainer {...props} data={this.state.cats} />}
+            
           />
-          <Route
-            path='/dogs'
-            render={props => (
-              <PhotoContainer {...props} data={this.state.dogs} title='dogs' />
-            )}
-          />
-          <Route
-            path='/computers'
-            render={props => (
-              <PhotoContainer
-                {...props}
-                data={this.state.computers}
-                title='computers'
-              />
-            )}
-          />
-        </BrowserRouter>
-        {/* <SearchForm /> */}
-        {/* <PhotoContainer data={this.state.photos} /> */}
-      </div>
+          <Route path='/dogs' render={props => <PhotoContainer {...props} data={this.state.dogs} />}/>
+          <Route path='/computers' render={props => <PhotoContainer {...props} data={this.state.computers} />}/>
+        </div>
+      </BrowserRouter>
     );
   }
 }
