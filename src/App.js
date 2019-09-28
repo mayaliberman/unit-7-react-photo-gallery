@@ -73,7 +73,7 @@ export default class App extends Component {
       });
   };
 
-  performSearch = query => {
+  performSearch = (query ='sunset') => {
     //fetch data from flickr
     axios
       .get(
