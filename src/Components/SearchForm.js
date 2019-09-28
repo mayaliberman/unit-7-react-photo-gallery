@@ -12,6 +12,9 @@ onSearchChange = e => {
   handleSubmit = e => {
     e.preventDefault();
     this.props.onSearch(this.state.searchText);
+    let searchTopic = this.topic.value
+    let path = `search/${searchTopic}`;
+    this.props.history.push(path)
     e.currentTarget.reset();
     
   }
@@ -19,7 +22,7 @@ onSearchChange = e => {
     return (
       <div className='container'>
       <form className='search-form' onSubmit={this.handleSubmit}>
-        <input type='search' name='search' placeholder='Search' onChange={this.onSearchChange} required />
+        <input type='search' name='search' placeholder='Search'  ref={input => (this.topic = input)} onChange={this.onSearchChange} required />
         <button type='submit' className='search-button'>
           <svg
             fill='#fff'

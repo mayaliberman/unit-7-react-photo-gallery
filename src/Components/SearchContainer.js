@@ -2,8 +2,10 @@ import React from 'react';
 import GalleryItem from './GalleryItem';
 import NoGifs from './NoGifs';
 
-const PhotoContainer = (props ) => {
+const SearchContainer = ({match}, props ) => {
   const results = props.data;
+  const topic = match.params.topic
+ 
   let photos;
   if(results.length > 0) {
   photos = results.map(photo => 
@@ -17,7 +19,7 @@ const PhotoContainer = (props ) => {
  
   return (
     <div className='photo-container'>
-      <h2>{props.title}</h2>
+      <h2>{topic}</h2>
       <ul>
         {photos}
       </ul>
@@ -25,4 +27,4 @@ const PhotoContainer = (props ) => {
   );
 };
 
-export default PhotoContainer;
+export default SearchContainer;

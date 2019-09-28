@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 import axios from 'axios';
-import Header from './Components/Header';
 import PhotoContainer from './Components/PhotoContainer';
 import apiKey from './config';
-
+import SearchContainer from './Components/SearchContainer';
+import SearchForm from './Components/SearchForm';
+import Nav from './Components/Nav';
 
 export default class App extends Component {
   state = {
@@ -83,9 +84,8 @@ export default class App extends Component {
         this.setState({
           photos: response.data.photos.photo,
           loading: false //initialize a loading state to display a loading message
-          
         });
-        console.log(this.state.photos)
+        console.log(this.state.photos);
       })
       .catch(error => {
         //this catch method outputs a message to the console, should axios fail to retrieve data
@@ -96,21 +96,42 @@ export default class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div>
-          <Header />
-          <Route exact path='/' component={Header} />
-          <Route
-            path='/search'
-            render={props => <PhotoContainer {...props} data={this.state.photos} />}
-            
-          />
-          <Route
-            path='/cats'
-            render={props => <PhotoContainer {...props} data={this.state.cats} />}
-            
-          />
-          <Route path='/dogs' render={props => <PhotoContainer {...props} data={this.state.dogs} />}/>
-          <Route path='/computers' render={props => <PhotoContainer {...props} data={this.state.computers} />}/>
+        <div className='container'>
+          <SearchForm search={this.performSearch} />
+          <Nav />
+          <Switch>
+            <Route
+              exact
+              path='/'
+              render={props => (
+                <PhotoContainer {...props} data={this.state.photos} />
+              )}
+            />
+            <Route
+              path='/search/:topic'
+              render={props => (
+                <SearchContainer {...props} data={this.state.photos} />
+              )}
+            />
+            <Route
+              path='/cats'
+              render={props => (
+                <PhotoContainer {...props} data={this.state.cats} />
+              )}
+            />
+            <Route
+              path='/dogs'
+              render={props => (
+                <PhotoContainer {...props} data={this.state.dogs} />
+              )}
+            />
+            <Route
+              path='/computers'
+              render={props => (
+                <PhotoContainer {...props} data={this.state.computers} />
+              )}
+            />
+          </Switch>
         </div>
       </BrowserRouter>
     );
