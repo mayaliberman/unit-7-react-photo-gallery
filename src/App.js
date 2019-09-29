@@ -10,7 +10,7 @@ import Nav from './Components/Nav';
 export default class App extends Component {
   state = {
     photos: [],
-    ants: [],
+    sunset: [],
     dogs: [],
     computers: [],
     loading: true
@@ -18,7 +18,7 @@ export default class App extends Component {
 
   componentDidMount() {
     this.performSearch();
-    this.performSearch('cats', 'cats');
+    this.performSearch('sunset', 'sunset');
     this.performSearch('dogs', 'dogs');
     this.performSearch('computers', 'computers');
   }
@@ -71,12 +71,12 @@ export default class App extends Component {
               )}
             />
             <Route
-              path='/cats'
+              path='/sunset'
               render={props => (
                 <PhotoContainer
                   {...props}
-                  data={this.state.cats}
-                  title='Cats'
+                  data={this.state.sunset}
+                  title='Sunset'
                 />
               )}
             />
