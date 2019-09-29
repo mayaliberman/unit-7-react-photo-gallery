@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 import axios from 'axios';
 import PhotoContainer from './Components/PhotoContainer';
@@ -44,7 +44,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <BrowserRouter>
+      <HashRouter basename="/unit-7-react-photo-gallery">
         <div className='container'>
           <Route
             render={props => (
@@ -102,7 +102,7 @@ export default class App extends Component {
             />
           </Switch>
         </div>
-      </BrowserRouter>
+      </HashRouter>
     );
   }
 }
