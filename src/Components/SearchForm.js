@@ -11,7 +11,7 @@ onSearchChange = e => {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.onSearch(this.query.value);
+    this.props.search(this.query.value);
     // let searchTopic = this.topic.value
     // let path = `search/${searchTopic}`;
     // this.props.history.push(path)
