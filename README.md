@@ -1,3 +1,20 @@
+## Introduction
+On this app I used the React library to create an image gallery ap. It is a SPA that you can make a search for photos using Flicker API to show the results. You can also use the pre-defined nav buttons to show distinguished results.
+The technologies I used:
+JSX, Axios, React, React Router DOM and React DOM.
+
+## Installation Flickr API key
+
+Download the project files.
+Create yahoo account/use tumblr account to sign in.
+Apply for a non-commercial API key at https://www.flickr.com/services/apps/create/apply/.
+You’ll need to set up a config.js file in your project that imports your API key into your application so that you and other users can request data from the Flickr API. This should be imported into src/App.js.
+The config.js file should look something like this:
+
+const apiKey = 'YOUR API KEY';
+export default apiKey;
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

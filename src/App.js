@@ -44,7 +44,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <HashRouter basename="/unit-7-react-photo-gallery">
+      <HashRouter >
         <div className='container'>
           <Route
             render={props => (
