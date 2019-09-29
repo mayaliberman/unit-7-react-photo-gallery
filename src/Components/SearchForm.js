@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 export default class SearchForm extends Component {
 state = {
   searchText: ''
@@ -12,9 +11,7 @@ onSearchChange = e => {
   handleSubmit = e => {
     e.preventDefault();
     this.props.search(this.query.value);
-    // let searchTopic = this.topic.value
-    // let path = `search/${searchTopic}`;
-    // this.props.history.push(path)
+    this.props.history.push(`/search/${this.query.value}`)
     e.currentTarget.reset();
     
   }
