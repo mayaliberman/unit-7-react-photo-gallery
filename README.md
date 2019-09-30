@@ -14,6 +14,8 @@ The config.js file should look something like this:
 const apiKey = 'YOUR API KEY';
 export default apiKey;
 
+then run the 'npm start'
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
