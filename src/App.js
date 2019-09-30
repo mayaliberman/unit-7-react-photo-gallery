@@ -46,6 +46,9 @@ export default class App extends Component {
     return (
       <HashRouter >
         <div className='container'>
+        <h1>Photo Gallery</h1>
+        <p>Enjoy searching photos from Flicker using the search field or the navigation buttons</p>
+        <br />
           <Route
             render={props => (
               <SearchForm {...props} search={this.performSearch} />
