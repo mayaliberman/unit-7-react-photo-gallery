@@ -1,10 +1,9 @@
 import React from 'react';
 
-const GalleryItem = (props) => (
-    <li>
-    <img src={props.url} alt={props.alt} />
+const GalleryItem = ({url, alt}) => (
+  <li>
+    <img src={url} alt={alt} />
   </li>
- 
 );
 
 export default GalleryItem;

@@ -9,11 +9,6 @@ const Nav = () => (
       <li><NavLink to="/computers">Computers</NavLink></li>
     </ul>
     </nav>
-  
-)
+ )
 
 export default Nav;
-
-
-
-
