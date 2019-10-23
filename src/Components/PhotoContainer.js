@@ -3,7 +3,7 @@ import GalleryItem from './GalleryItem';
 import NoGifs from './NoGifs';
 
 const PhotoContainer = props => {
-  const title = props.title || props.match.params.query;
+  const title = props.title;
   const results = props.data;
   let photos;
   if (results.length > 0) {
